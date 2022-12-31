@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - Brand</title>
+    <link rel="stylesheet" href="{{ url_for( 'static' , filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for( 'static' , filename='css/styles.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for( 'static' , filename='fonts/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static' , filename='https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap')}}">
+    <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/script.min.js')}}"></script>    
+
+  
+  
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fab fa-medapps"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>Stock Alert</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link active" href="dashboard"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link" href="/login"><i class="far fa-user-circle"></i><span>Log Out</span></a></li>
+                    <li class="nav-item"></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4"></div>
+                    <div class="row">
+                        <div class="col">
+                            <section class="py-4 py-xl-5" style="height: 334.8px;margin: -14px;">
+                                <div class="container">
+                                    <div class="text-white bg-primary border rounded border-0 border-primary d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5" style="margin: -5px;">
+                                        <div class="pb-2 pb-lg-1">
+                                            <h2 class="fw-bold mb-2" style="font-size: 47px;">Stock Price Notifier</h2>
+                                            <p class="mb-0" style="font-size: 24px;"><strong>Keep yourself updated with your stock performance</strong><br></p>
+                                        </div>
+                                    </div>
+                                    <section class="py-4 py-xl-5" style="height: 117.4px;">
+                                        <div class="container h-100">
+                                            <div class="row h-100">
+                                                <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
+                                                    <div>
+                                                        <h2 class="text-uppercase fw-bold mb-3">Register Stock Alert</h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="row" style="margin: 0px;height: 752px;width: 1107.6px;padding: -36px;">
+                        <div class="col">
+                            <section class="position-relative py-4 py-xl-5">
+                                <div class="container position-relative">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xl-4 col-xxl-12">
+                                            <div>
+                                                <form action="/setalert" class="p-3 p-xl-4" method="post">
+                                                    <div class="mb-3"><label class="form-label fs-4" for="name"><strong>Choose your stock</strong></label><input class="form-control" type="text" id="stock_name" name="stock"></div>
+                                                    <div class="mb-3"><label class="form-label fs-4" for="name"><strong>Price Threshold</strong><br></label><input class="form-control" type="text" id="stock_name-2" name="upperlimit" style="padding-right: 643px;margin-right: -637px;" placeholder="Upper Threshold"><br>
+                                                    <input class="form-control" type="text" id="stock_name-3" name="lowerlimit" style="padding-right: 643px;margin-right: -637px;" placeholder="Lower Threshold"></div>
+                                                    <div class="mb-3"><label class="form-label fs-4" for="frequency"><strong>Frequency of alert</strong></label><br>
+                                                       
+                                                        <select id="frequency" name="frequency" size="4">
+                                                            <option value="1h">Hourly</option>
+                                                            <option value="1d">Daily</option>
+                                                            <option value="1wk">Weekly</option>
+                                                            <option value="1mo">Monthly</option>
+                                                        </select><br><br>
+                                                        
+                                                        </div>
+                                                    <div class="mb-3"><label class="form-label fs-4" for="message"><strong>Medium of alert</strong></label><br>
+                                                        <select id="medium" name="medium" size="2">
+                                                            <option value="sms">SMS</option>
+                                                            <option value="email">Email</option>
+                                                   
+                                                        </select><br><br>
+
+                                                        </div>
+                                                    <div class="mb-3"><button class="btn btn-primary" type="submit" value="Submit">Set Alert</button></div>
+                                                </form>
+                                                <h3>         {{msg}}</h3> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <h3 class="text-dark mb-4">Your Alert Database</h3>
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
+                            <table class="table my-0" id="dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>Stock Name</th>
+                                        <th>Company</th>
+                                        <th>Upper Threshold</th>
+                                        <th>Lower Threshold</th>
+                                        <th>Frequency</th>
+                                        <th>LTP</th>
+                                      
+                                    </tr>
+                                </thead>
+                                {% for row in rows %}  
+                                  
+                              <tr>  
+                               <td>{{row["stock"]}}</td>  
+                               <td>{{row["company_name"]}}</td>  
+                               <td>{{row["uLimit"]}}</td>  
+                               <td>{{row["LLimit"]}}</td>  
+                               <td>{{row["frequency"]}}</td>  
+                               <td>{{row["LTP"]}}</td>  
+                             
+                            </tr>  
+      
+                               {% endfor %}  
+    
+                                
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer"></footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+
+</body>
+
+</html>
