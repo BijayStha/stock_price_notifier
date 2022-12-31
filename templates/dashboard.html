@@ -81,7 +81,7 @@
                                                             <option value="1d">Daily</option>
                                                             <option value="1wk">Weekly</option>
                                                             <option value="1mo">Monthly</option>
-                                                        </select><br><br>
+                                                        </select><br>
                                                         
                                                         </div>
                                                     <div class="mb-3"><label class="form-label fs-4" for="message"><strong>Medium of alert</strong></label><br>
@@ -89,12 +89,17 @@
                                                             <option value="sms">SMS</option>
                                                             <option value="email">Email</option>
                                                    
-                                                        </select><br><br>
+                                                        </select>
 
                                                         </div>
                                                     <div class="mb-3"><button class="btn btn-primary" type="submit" value="Submit">Set Alert</button></div>
                                                 </form>
-                                                <h3>         {{msg}}</h3> 
+                                                <h4>Status: {{msg}}</h4> 
+                                                <h4>Notification: {{notify}}</h4> 
+                                                <br>
+                                                
+                                                <br>
+                                                <br>
                                             </div>
                                         </div>
                                     </div>
@@ -104,8 +109,10 @@
                     </div>
                 </div>
             </div>
+            <br>
             <div class="container">
                 <h3 class="text-dark mb-4">Your Alert Database</h3>
+                               
                 <div class="card shadow">
                     <div class="card-body">
                         <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
@@ -121,21 +128,19 @@
                                       
                                     </tr>
                                 </thead>
-                                {% for row in rows %}  
-                                  
-                              <tr>  
-                               <td>{{row["stock"]}}</td>  
-                               <td>{{row["company_name"]}}</td>  
-                               <td>{{row["uLimit"]}}</td>  
-                               <td>{{row["LLimit"]}}</td>  
-                               <td>{{row["frequency"]}}</td>  
-                               <td>{{row["LTP"]}}</td>  
-                             
-                            </tr>  
-      
-                               {% endfor %}  
-    
+                                <tbody>
+                                {% for datashow in data_alert %}   
+                                <tr>  
+                                    <td>{{datashow.stock}}</td>  
+                                    <td>{{datashow.stock}}</td>  
+                                    <td>{{datashow.upperlimit}}</td>  
+                                    <td>{{datashow.lowerlimit}}</td>  
+                                    <td>{{datashow.frequency}}</td>  
+                                    <td>{{datashow.ltp}}</td>  
                                 
+                                </tr> 
+                                {% endfor %}
+                                </tbody>     
                             </table>
                         </div>
                     </div>

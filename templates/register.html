@@ -34,17 +34,14 @@
                                     <tr><td>Phone</td><td><input type="phone" name="phone"></td></tr>  
                                     <tr><td>Password</td><td><input type="password" name="password"></td></tr>  
                                     <tr><td>Password Verify</td><td><input type="password" name="password1"></td></tr>  
-                            
+                                    
                                     <tr><td><input type="submit" value="Submit"></td></tr>  
                                 </table>  
-                                </form>  
-                                {% with messages = get_flashed_messages(with_categories=true) %}
-                                {% if messages %}
-                                {% for category, message in messages %}
-                                <div class="alert alert-{{ category }}"> {{ message }}</div>
-                                {% endfor %}
-                                {% endif %}
-                                {% endwith %}
+                                </form>
+                                <br>
+                                <p>Status: {{msg}}</p> 
+                                
+                               
                                 <div class="text-center"><a class="small" href="/login">Already have an account? Login!</a></div>
                             </div>
            
